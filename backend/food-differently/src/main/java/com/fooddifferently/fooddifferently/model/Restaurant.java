@@ -1,17 +1,30 @@
-package com.fooddifferently.fooddifferently.dto;
+package com.fooddifferently.fooddifferently.model;
 
+import jakarta.persistence.*;
 import java.util.List;
 
 /**
- * Data Transfer Object (DTO) for representing restaurant information.
+ * Represents a restaurant entity.
  */
-public class RestaurantDTO {
+@Entity
+@Table(name = "restaurants")
+public class Restaurant {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String address;
+
+    @Column(name = "type_of_food", nullable = false)
     private String typeOfFood;
-    private List<MenuItemDTO> menuItems;
+
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<MenuItem> menuItems;
 
     /**
      * Retrieves the ID of the restaurant.
@@ -90,7 +103,7 @@ public class RestaurantDTO {
      *
      * @return The list of menu items offered by the restaurant.
      */
-    public List<MenuItemDTO> getMenuItems() {
+    public List<MenuItem> getMenuItems() {
         return menuItems;
     }
 
@@ -99,7 +112,7 @@ public class RestaurantDTO {
      *
      * @param menuItems The list of menu items to set.
      */
-    public void setMenuItems(List<MenuItemDTO> menuItems) {
+    public void setMenuItems(List<MenuItem> menuItems) {
         this.menuItems = menuItems;
     }
 }
