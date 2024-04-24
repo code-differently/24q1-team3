@@ -1,12 +1,139 @@
-body {
-    background-color: black; 
-    color: #fff; 
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: white; 
+    color: black;
+    font-family: Arial, sans-serif;
 }
 
-.header {
-    background-color:  black;
+.hero{
+    padding-top: 6% !important;
+    color: black;
 }
 
-.header-button {
-    background-color: #ff6600;
+h1, h2, h3, h4, h5, h6,
+p, a, li, span, div {
+    font-family: inherit; 
 }
+
+
+.icon-square {
+    background-color: white;
+}
+
+.icon-link{
+    color: black;
+    text-decoration: none;
+}
+
+.bolder-outline {
+    border-width: 2px; 
+}
+
+
+header {
+    position: fixed; 
+    width: 100%; 
+    z-index: 1000; 
+    margin-bottom: 25px;
+    background-color: white; 
+    
+}
+
+.nav-link span.animated-text {
+    font-size: 18px;
+}
+
+
+.nav-link {
+    font-size: 18px;
+    color: white;
+    position: relative;
+    text-decoration: none;
+}
+.nav-link:hover {
+    color: #ffc107; 
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px; 
+    width: 0%;
+    height: 2px;
+    background-color: #ffc107; 
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+
+.container {
+    padding: 0;
+}
+
+.animated-text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: black;
+    transition: color 0.3s ease;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.nav-link {
+    color: black !important;
+}
+
+.hero-image img {
+    max-width: 500px; 
+    width: 100%; 
+    height: auto; 
+    border-radius: 50% / 50%; 
+}
+
+.features .feature h3 {
+    position: relative;
+    text-decoration: none;
+  }
+  
+  .features .feature h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px; 
+    width: 0%;
+    height: 2px;
+    background-color: #ffc107; 
+    transition: width 0.3s ease; 
+  }
+  
+  .features .feature h3:hover::after {
+    width: 100%; 
+  }
+
+.feature {
+    background-color: white; 
+    padding: 20px;
+    text-align: center;
+    color: black; 
+    font-weight: bold;
+
+
+}
+
+.feature-icon {
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    overflow: hidden; 
+  }
+
+  .feature-icon img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+  }
+  

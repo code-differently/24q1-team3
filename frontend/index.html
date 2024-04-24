@@ -7,72 +7,113 @@
     <title>Food Differently</title>
   
 
+
     <link rel="stylesheet" type="text/css" href="./index.css" />
-    <meta name="color-scheme" content="dark light">
 </head>
 
 <body>
-    
-
-       
-  
-    <header class="p-3 text-bg-transparant">
+      <!-- Navbar -->
+    <header class="text-bg-transparant"> 
         <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <div class="d-flex flex-wrap align-items-center">
+                <div class="col-6 col-lg-auto">
+                    <img src="images/logo.jpeg" alt="food differently logo" height="100">
+                </div>
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                     <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
                 </a>
-
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-
-                </ul>
-
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
-                </form>
-
-                <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-success">Sign-up</button>
+    
+                <ul class="nav col-6 col-lg mb-2 justify-content-start mb-md-0">
+                        <li><a href="#" class="nav-link px-1 text-secondary"><span class="animated-text" onmouseover="changeColor(this)" onmouseout="resetColor(this)">Home</span></a></li>
+                        <li><a href="about.html" class="nav-link px-2 text-white"><span class="animated-text" onmouseover="changeColor(this)" onmouseout="resetColor(this)">About</span></a></li>
+                        <li><a href="contact.html" class="nav-link px-2 text-white"><span class="animated-text" onmouseover="changeColor(this)" onmouseout="resetColor(this)">Contact</span></a></li>
+                    </ul>
+                    
+           
+                <div class="text-end ms-auto">
+                    <a href="login.html" class="btn btn-outline-warning btn-md">Login</a>
+                    <a href="signup.html" class="btn btn-outline-warning btn-md">Sign-up</a>
+                </div>
+            </div>
                 </div>
             </div>
         </div>
     </header>
 
-
-
-
-
-
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-        <div class="col-10 col-sm-8 col-lg-6">
-          <img src="./foodbackground.jpeg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+    
+      <!-- hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="row justify-content-center align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="display-5 fw-bold text-body-emphasis lh-1 mb-3 text-center"></div>
+                    <div>
+                        <h1 class="animated-text" onmouseover="changeColor(this)" onmouseout="resetColor(this)">Discover restaurants and more near you.</h1>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center text-center"> 
+                            <button type="button" class="btn btn-outline-warning btn-lg px-4 me-md-2 bolder-outline" style="color: black;">See what's nearby</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6"> 
+                    <div class="hero-image">
+                        <img src="./images/pizza.jpeg" class="d-block img-fluid" style="padding: 20px;" loading="lazy" alt="pizza"> <!-- Added img-fluid class for responsive image -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-6">
-          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Responsive left-aligned hero with image</h1>
-          <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">see what's near by</button>
+    </section>
+    
+    
+  <!-- features -->
+    <section class="features">
+        <div class="container">
+          <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="feature col">
+              <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                <img src="images/delivery.jpeg" alt="Delivery" width="100" height="100">
+              </div>
+              <h3 class="fs-2 text-body-emphasis">Deliver with Food Differently</h3>
+              <p>Join us as a delivery driver and unlock the flexibility to earn reliable income on your terms. With the freedom to work anytime and anywhere, you're in control of your schedule and your earnings.</p>
+              <a href="#" class="icon-link">
+                <span class="feature-text" onmouseover="changeColor(this)" onmouseout="resetColor(this)">Sign up to deliver</span>
+                <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+              </a>
+            </div>
+            <div class="feature col">
+              <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                <img src="images/fooddelivered.jpeg" alt="Delivery" width="100" height="100">
+              </div>
+              <h3 class="fs-2 text-body-emphasis">Delivery or Pickup</h3>
+              <p>Kick back and enjoy the convenience of delivery straight to your door, or beat the queue by opting for pickup.</p>
+              <a href="#" class="icon-link">
+                <span class="feature-text" onmouseover="changeColor(this)" onmouseout="resetColor(this)">Search restaurants</span>
+                <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+              </a>
+            </div>
+            <div class="feature col">
+              <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                <img src="images/donate.jpeg" alt="Donate" width="100" height="100">
+              </div>
+              <h3 class="fs-2 text-body-emphasis">Donate</h3>
+              <p>Join us in advancing computer science education by making a donation today. Your support empowers students with vital digital skills, shaping the innovators of tomorrow.
+
+              </p>
+              <a href="#" class="icon-link">
+                <span class="feature-text" onmouseover="changeColor(this)" onmouseout="resetColor(this)"> Donate</span>
+                <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+    </container>
+      </section>
+      
+      
+    
+  <!-- footer -->
 
-
-
-
-
-
-
-    <div class="d-flex flex-column flex-sm-row justify-content-center py-4 my-4 border-top">
-      <p>© 2024 Food Differently . All rights reserved.</p>
-      <ul class="list-unstyled d-flex">
-        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-      </ul>
+<div class="d-flex flex-column flex-sm-row justify-content-center py-4 pb-0 my-4 border-top">
+    <p>© 2024 Food Differently All rights reserved.</p>
     </div>
     
 
