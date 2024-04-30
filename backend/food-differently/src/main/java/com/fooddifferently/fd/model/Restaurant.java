@@ -2,11 +2,6 @@ package com.fooddifferently.fd.model;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * Represents a restaurant in the system.
  */
 @Entity
 @Table(name = "restaurants")
@@ -22,12 +17,6 @@ public class Restaurant {
     @Column(nullable = false)
     private String address;
 
-    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
-    private List<Dish> dishes = new ArrayList<>();
-
-
-    /**
-     * Get the ID of the restaurant.
      *
      * @return The ID of the restaurant.
      */
@@ -36,16 +25,14 @@ public class Restaurant {
     }
 
     /**
-     * Set the ID of the restaurant.
-     *
-     * @param id The ID of the restaurant.
+
      */
     public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     * Get the name of the restaurant.
+
      *
      * @return The name of the restaurant.
      */
@@ -54,16 +41,14 @@ public class Restaurant {
     }
 
     /**
-     * Set the name of the restaurant.
-     *
-     * @param name The name of the restaurant.
+
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Get the address of the restaurant.
+
      *
      * @return The address of the restaurant.
      */
@@ -71,11 +56,7 @@ public class Restaurant {
         return address;
     }
 
-    /**
-     * Set the address of the restaurant.
-     *
-     * @param address The address of the restaurant.
-     */
+  
     public void setAddress(String address) {
         this.address = address;
     }
@@ -98,4 +79,39 @@ public class Restaurant {
         this.dishes = dishes;
     }
 
+=======
+     * Retrieves the type of food served by the restaurant.
+     *
+     * @return The type of food served by the restaurant.
+     */
+    public String getTypeOfFood() {
+        return typeOfFood;
+    }
+
+    /**
+     * Sets the type of food served by the restaurant.
+     *
+     * @param typeOfFood The type of food to set.
+     */
+    public void setTypeOfFood(String typeOfFood) {
+        this.typeOfFood = typeOfFood;
+    }
+
+    /**
+     * Retrieves the list of menu items offered by the restaurant.
+     *
+     * @return The list of menu items offered by the restaurant.
+     */
+    public List<MenuItem> getMenuItems() {
+        return menuItems;
+    }
+
+    /**
+     * Sets the list of menu items offered by the restaurant.
+     *
+     * @param menuItems The list of menu items to set.
+     */
+    public void setMenuItems(List<MenuItem> menuItems) {
+        this.menuItems = menuItems;
+    }
 }

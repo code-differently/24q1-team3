@@ -1,4 +1,4 @@
-package com.fooddifferently.fooddifferently.dto;
+package com.fooddifferently.fd.dto;
 
 /**
  * Data Transfer Object (DTO) representing a user.

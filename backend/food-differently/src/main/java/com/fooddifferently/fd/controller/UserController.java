@@ -1,7 +1,7 @@
-package com.fooddifferently.fooddifferently.controller;
+package com.fooddifferently.fd.controller;
 
-import com.fooddifferently.fooddifferently.model.User;
-import com.fooddifferently.fooddifferently.service.UserService;
+import com.fooddifferently.fd.model.User;
+import com.fooddifferently.fd.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

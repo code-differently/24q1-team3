@@ -1,4 +1,4 @@
-package com.fooddifferently.fooddifferently.controller;
+package com.fooddifferently.fd.controller;
 
 public class ReviewController {
 }

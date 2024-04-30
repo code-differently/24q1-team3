@@ -1,4 +1,4 @@
-package com.fooddifferently.fooddifferently.service;
+package com.fooddifferently.fd.service;
 
 public class ReviewService {
 }

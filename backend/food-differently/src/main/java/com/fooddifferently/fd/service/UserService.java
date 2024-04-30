@@ -1,6 +1,6 @@
-package com.fooddifferently.fooddifferently.service;
+package com.fooddifferently.fd.service;
 
-import com.fooddifferently.fooddifferently.model.User;
+import com.fooddifferently.fd.model.User;
 
 import java.util.List;
 

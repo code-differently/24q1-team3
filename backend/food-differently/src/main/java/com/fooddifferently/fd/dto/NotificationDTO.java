@@ -1,4 +1,4 @@
-package com.fooddifferently.fooddifferently.dto;
+package com.fooddifferently.fd.dto;
 
 public class NotificationDTO {
 }

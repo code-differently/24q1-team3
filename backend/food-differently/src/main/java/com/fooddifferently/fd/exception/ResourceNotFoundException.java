@@ -1,4 +1,4 @@
-package com.fooddifferently.fooddifferently.exception;
+package com.fooddifferently.fd.exception;
 
 public class ResourceNotFoundException {
 }

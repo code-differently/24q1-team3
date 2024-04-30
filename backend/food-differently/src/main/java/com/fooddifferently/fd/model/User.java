@@ -1,4 +1,4 @@
-package com.fooddifferently.fooddifferently.model;
+package com.fooddifferently.fd.model;
 
 import jakarta.persistence.*;
 

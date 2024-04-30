@@ -1,4 +1,5 @@
-package com.fooddifferently.fooddifferently.model;
+package com.fooddifferently.fd.model;
+
 
 public class Notification {
 }
