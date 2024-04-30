@@ -3,62 +3,74 @@ package com.fooddifferently.fd.controller;
 import com.fooddifferently.fd.model.User;
 import com.fooddifferently.fd.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Controller class to handle HTTP requests related to users.
+ */
 @RestController
 @RequestMapping("/users")
 public class UserController {
 
     private final UserService userService;
 
+    /**
+     * Constructor for UserController.
+     * @param userService The user service to be used by the controller.
+     */
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userService.getAllUsers();
-        return new ResponseEntity<>(users, HttpStatus.OK);
+    /**
+     * Endpoint to get all users.
+     * @return List of all users.
+     */
+    @GetMapping("/")
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
 
-    @GetMapping("/{userId}")
-    public ResponseEntity<User> getUserById(@PathVariable Long userId) {
-        User user = userService.getUserById(userId);
-        if (user != null) {
-            return new ResponseEntity<>(user, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    /**
+     * Endpoint to get a specific user by their ID.
+     * @param id The ID of the user to retrieve.
+     * @return The user with the specified ID.
+     */
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable Long id) {
+        return userService.getUserById(id);
     }
 
-    @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User createdUser = userService.createUser(user);
-        return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+    /**
+     * Endpoint to create a new user.
+     * @param user The user object containing the details of the new user.
+     * @return The created user object.
+     */
+    @PostMapping("/")
+    public User createUser(@RequestBody User user) {
+        return userService.createUser(user);
     }
 
-    @PutMapping("/{userId}")
-    public ResponseEntity<User> updateUser(@PathVariable Long userId, @RequestBody User user) {
-        User updatedUser = userService.updateUser(userId, user);
-        if (updatedUser != null) {
-            return new ResponseEntity<>(updatedUser, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    /**
+     * Endpoint to update an existing user.
+     * @param id The ID of the user to update.
+     * @param user The updated user object.
+     * @return The updated user object.
+     */
+    @PutMapping("/{id}")
+    public User updateUser(@PathVariable Long id, @RequestBody User user) {
+        return userService.updateUser(id, user);
     }
 
-    @DeleteMapping("/{userId}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long userId) {
-        boolean deleted = userService.deleteUser(userId);
-        if (deleted) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    /**
+     * Endpoint to delete a user by their ID.
+     * @param id The ID of the user to delete.
+     */
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
     }
 }

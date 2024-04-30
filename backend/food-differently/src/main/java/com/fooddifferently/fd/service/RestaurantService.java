@@ -1,6 +1,5 @@
 package com.fooddifferently.fd.service;
 
-
 import com.fooddifferently.fd.model.Restaurant;
 import com.fooddifferently.fd.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +44,7 @@ public class RestaurantService {
      * @return The newly created restaurant.
      */
     public Restaurant createRestaurant(Restaurant restaurant) {
+
         return restaurantRepository.save(restaurant);
     }
 
@@ -58,7 +58,7 @@ public class RestaurantService {
     public Restaurant updateRestaurant(Long id, Restaurant restaurant) {
         Optional<Restaurant> optionalExistingRestaurant = restaurantRepository.findById(id);
         if (optionalExistingRestaurant.isPresent()) {
-            restaurant.setId(id); // Ensure the ID matches the path variable
+            restaurant.setId(id);
             return restaurantRepository.save(restaurant);
         }
         return null;
@@ -81,50 +81,4 @@ public class RestaurantService {
     public List<Restaurant> getAllRestaurants() {
         return restaurantRepository.findAll();
     }
-}
-
-import com.fooddifferently.fd.dto.RestaurantDTO;
-
-import java.util.List;
-
-public interface RestaurantService {
-
-    /**
-     * Create a new restaurant.
-     *
-     * @param restaurantDTO The DTO representing the restaurant to be created.
-     * @return The DTO representing the created restaurant.
-     */
-    RestaurantDTO createRestaurant(RestaurantDTO restaurantDTO);
-
-    /**
-     * Get a restaurant by its ID.
-     *
-     * @param id The ID of the restaurant to retrieve.
-     * @return The DTO representing the retrieved restaurant.
-     */
-    RestaurantDTO getRestaurantById(Long id);
-
-    /**
-     * Get all restaurants.
-     *
-     * @return A list of DTOs representing all restaurants.
-     */
-    List<RestaurantDTO> getAllRestaurants();
-
-    /**
-     * Update a restaurant.
-     *
-     * @param id            The ID of the restaurant to update.
-     * @param restaurantDTO The DTO representing the updated restaurant.
-     * @return The DTO representing the updated restaurant.
-     */
-    RestaurantDTO updateRestaurant(Long id, RestaurantDTO restaurantDTO);
-
-    /**
-     * Delete a restaurant by its ID.
-     *
-     * @param id The ID of the restaurant to delete.
-     */
-    void deleteRestaurant(Long id);
 }

@@ -1,7 +1,3 @@
-package com.fooddifferently.fooddifferently.model;
-
-public class Review {
-=======
 package com.fooddifferently.fd.model;
 
 import jakarta.persistence.Entity;
