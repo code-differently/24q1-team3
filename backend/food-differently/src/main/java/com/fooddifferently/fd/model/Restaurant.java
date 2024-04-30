@@ -1,10 +1,7 @@
 package com.fooddifferently.fd.model;
 
 import jakarta.persistence.*;
-import java.util.List;
 
-/**
- * Represents a restaurant entity.
  */
 @Entity
 @Table(name = "restaurants")
@@ -20,14 +17,6 @@ public class Restaurant {
     @Column(nullable = false)
     private String address;
 
-    @Column(name = "type_of_food", nullable = false)
-    private String typeOfFood;
-
-    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<MenuItem> menuItems;
-
-    /**
-     * Retrieves the ID of the restaurant.
      *
      * @return The ID of the restaurant.
      */
@@ -36,16 +25,14 @@ public class Restaurant {
     }
 
     /**
-     * Sets the ID of the restaurant.
-     *
-     * @param id The ID to set.
+
      */
     public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     * Retrieves the name of the restaurant.
+
      *
      * @return The name of the restaurant.
      */
@@ -54,16 +41,14 @@ public class Restaurant {
     }
 
     /**
-     * Sets the name of the restaurant.
-     *
-     * @param name The name to set.
+
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Retrieves the address of the restaurant.
+
      *
      * @return The address of the restaurant.
      */
@@ -71,16 +56,30 @@ public class Restaurant {
         return address;
     }
 
-    /**
-     * Sets the address of the restaurant.
-     *
-     * @param address The address to set.
-     */
+  
     public void setAddress(String address) {
         this.address = address;
     }
 
     /**
+     * Get the menu of the restaurant.
+     *
+     * @return The menu of the restaurant.
+     */
+    public List<Dish> getMenu() {
+        return dishes;
+    }
+
+    /**
+     * Set the menu of the restaurant.
+     *
+     * @param menu The menu of the restaurant.
+     */
+    public void setMenu(List<Dish> menu) {
+        this.dishes = dishes;
+    }
+
+=======
      * Retrieves the type of food served by the restaurant.
      *
      * @return The type of food served by the restaurant.
