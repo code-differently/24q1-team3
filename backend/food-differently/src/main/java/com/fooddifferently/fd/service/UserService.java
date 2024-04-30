@@ -50,10 +50,8 @@ public class UserService {
     public User updateUser(Long userId, User updatedUser) {
         validateUser(updatedUser);
         User existingUser = getUserById(userId);
-        /
         existingUser.setUsername(updatedUser.getUsername());
         existingUser.setEmail(updatedUser.getEmail());
-        // Additional fields can be updated similarly
 
         return userRepository.save(existingUser);
     }
@@ -107,7 +105,7 @@ public class UserService {
         Optional<User> existingUserByUsername = userRepository.findByUsername(newUser.getUsername());
         User existingUserByEmail = userRepository.findByEmail(newUser.getEmail());
 
-        if (existingUserByUsername != null) {
+        if (existingUserByUsername.isPresent()) {
             throw new UserAlreadyExistsException("User with username " + newUser.getUsername() + " already exists");
         }
 
