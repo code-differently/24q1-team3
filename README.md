@@ -1,8 +1,8 @@
 # 24q1-team3  (Food Differently) 
 ## The team
     
-* Team Lead: Chukwuma
-* Team Member: Sherlin
+* Team Backend Lead: Chukwuma
+* Team Frontend Lead: Sherlin
 * Team Member: Kyvon
 * Team Member: Javyen 
 
