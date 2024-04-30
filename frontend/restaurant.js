@@ -22,10 +22,52 @@
                 image: "images/burger.jpeg"
             },
             {
-                name: 'Weinerschnitzel',
+                name: 'Red Lobster',
                 description: 'Fast food',
                 delivery: '$0 delivery fee',
-                url: 'https://www.weinerschnitzel.com',
+                url: 'https://www.redlobster.com/',
+                image: "images/shrimp-soup.jpeg"
+            },
+            {
+                name: 'Chiptole',
+                description: 'Fast food',
+                delivery: '$0 delivery fee',
+                url: 'https://www.chipotle.com/',
+                image: "images/shrimp-soup.jpeg"
+            },
+            {
+                name: 'Chik-fil-a',
+                description: 'Fast food',
+                delivery: '$0 delivery fee',
+                url: 'https://www.chick-fil-a.com/',
+                image: "images/shrimp-soup.jpeg"
+            },
+            {
+                name: 'HoneyGrow',
+                description: 'Fast food',
+                delivery: '$0 delivery fee',
+                url: 'https://www.honeygrow.com/',
+                image: "images/shrimp-soup.jpeg"
+            },
+            {
+                name: 'Mikimotos',
+                description: 'Fast food',
+                delivery: '$0 delivery fee',
+                url: 'https://mikimotos.com/',
+                image: "images/shrimp-soup.jpeg"
+            },
+            {
+                name: 'Olive Garden',
+                description: 'Fast food',
+                delivery: '$0 delivery fee',
+                url: 'https://www.olivegarden.com/home',
+                image: "images/shrimp-soup.jpeg"
+            },
+            {
+                name: 'The Simple Greek',
+                description: 'Fast food',
+                delivery: '$0 delivery fee',
+                url: 'https://thesimplegreek.com/concordpike-de/',
                 image: "images/shrimp-soup.jpeg"
             }
         ]);

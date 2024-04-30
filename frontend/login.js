@@ -1,3 +1,5 @@
+import firebase from './firebaseConfig';
+
 document.addEventListener("DOMContentLoaded", function() {
     const loginForm = document.getElementById("loginForm");
     const signupForm = document.getElementById("signupForm");
