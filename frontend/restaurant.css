@@ -4,6 +4,8 @@
     box-sizing: border-box;
     outline: none;
     font-family: sans-serif;
+    background-image: url(https://themewagon.github.io/delfood/images/body-bg.jpg);
+
 }
 
 body {
@@ -25,7 +27,7 @@ body {
     top: 0;
     left: 0;
     padding: 2%;
-    background-color: antiquewhite;
+    background-color: #ffc107;
     color: black;
 }
 
@@ -78,7 +80,7 @@ body {
     height: 40px;
     display: flex;
     justify-content: space-around;
-    background-color: white;
+    background-color: #ffc107;
     border-radius: 20px;
 }
 
@@ -100,7 +102,7 @@ body {
 }
 
 .search:hover {
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(241, 134, 33, 0.2) 0px 2px 8px 0px;
 }
 
 
@@ -118,7 +120,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: #ffc107;
     font-size: 20px;
     color:#ffc107;
     text-decoration: none;
@@ -128,7 +130,7 @@ body {
 }
 
 .cart:hover, user:hover{
-    box-shadow:  rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow:  rgba(241, 134, 33, 0.2) 0px 2px 8px 0px;
 }
 
 .main-highlight{
@@ -179,7 +181,7 @@ color: antiquewhite;
     gap: 1rem;
     border-radius: 8px;
     padding: 1%;
-    background-color: white;
+    background-color: #ffc107;
     cursor: pointer;
 }
 
@@ -202,13 +204,13 @@ font-size: 13px;
 }
 
 .highlight-card:hover{
-    background-color: white;
-    box-shadow:  rgba(176, 176, 176, 0.2) 0px 2px 8px 0px;
+    background-color: #ffc107;
+    box-shadow:  rgba(241, 134, 33, 0.2) 0px 2px 8px 0px;
 }
 
 .main-menus{
     min-height: 100%;
-    background-color: whitesmoke;
+    background-color: #ffc107;
     padding: 2%;
     border-radius: 8px;
 
@@ -249,7 +251,7 @@ gap:1.2rem;
     justify-content: space-around;
     min-width: 80px;
     height: 100%;
-    background-color: white;
+    background-color: #ffc107;
     color: black;
     border-radius: 8px;
     border: 1px solid #ffc107;
@@ -271,11 +273,11 @@ border-radius: 8px;
 
 .filter-card:hover{
     background-color: #FFA500;
-    color: white;
+    color: #ffc107;
 }
 
 .filter-card:hover .filter-icon{
-background-color: white;
+background-color: #ffc107;
 }
 
 .divider{
@@ -302,10 +304,10 @@ background-color: white;
 .detail-card{
     min-height: 280px;
     height: 100%;
-    background-color: white;
+    background-color: #ffc107;
     border-radius: 8px;
     margin: 1% 0;
-    box-shadow: rgba(176, 176, 176, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(241, 134, 33, 0.2) 0px 2px 8px 0px;
     cursor: pointer;
 }
 
@@ -342,7 +344,7 @@ background-color: white;
 }
 
 .detail-card:hover{
-    box-shadow:  rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow:  rgba(241, 134, 33, 0.2) 0px 2px 8px 0px;
 
 }
 

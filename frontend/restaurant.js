@@ -1,47 +1,64 @@
-const mobile = document.querySelector('.menu-toggle')
-const mobileLink = document.querySelector('.sidebar')
 
-mobile.addEventListener("click", function(){
-    mobile.classList.toggle("is-active");
-    mobileLink.classList.toggle("is-active");
-})
+(() => {
+    document.addEventListener('DOMContentLoaded', async () => {
+       const restuarants = await fetchRestaurants();
+       renderRestaurants(restuarants);
+    });
 
-mobileLink.addEventListener("click", function(){
-    const menuBars = document.querySelector("is-active")
-    if(window.innerHeight <=768 && menuBars) {
-        mobile.classList.toggle("is-active");
-        mobileLink.classList.toggle("active");
+    async function fetchRestaurants() {
+        return Promise.resolve([
+            {
+                name: 'McDonalds',
+                description: 'Fast food',
+                delivery: '$0 delivery fee',
+                url: 'https://www.mcdonalds.com',
+                image: "images/shrimp-soup.jpeg"
+            },
+            {
+                name: 'Wendy\'s',
+                description: 'Fast food',
+                delivery: '$0 delivery fee',
+                url: 'https://www.wendys.com',
+                image: "images/burger.jpeg"
+            },
+            {
+                name: 'Weinerschnitzel',
+                description: 'Fast food',
+                delivery: '$0 delivery fee',
+                url: 'https://www.weinerschnitzel.com',
+                image: "images/shrimp-soup.jpeg"
+            }
+        ]);
     }
-})
 
-var step = 100;
-var stepFilter = 60;
-var scrolling = true;
+    async function renderRestaurants(restaurants) {
+        // Get the wrapper so I can add new cards to it.
+        const restaurantContainer = document.querySelector('.detail-wrapper');
 
-$(".back").bind("click", function(e){
-    e.preventDefault();
-    $(".highlight-wrapper").animate({
-        scrollLeft: "-=" + step + "px"
-    });
-})
+        // Add a card for each restaurant.
+        restaurants.forEach(restaurant => {
+            const restaurantElement = document.createElement('div');
+            restaurantElement.classList.add('detail-card');
 
-$(".next") .bind ("click", function(e){
-    e.preventDefault();
-    $(".highlight-wrapper") .animate({
-        scrollLeft: "+=" + step + "px"
-    })
-})
+            restaurantElement.innerHTML = `
+                <img class="detail-img" src="${restaurant.image}">
+                <div class="detail-desc">
+                    <div class="detail-name">
+                        <a href="${restaurant.url}"><h4>${restaurant.name}</h4></a>
+                        <p class="detail-sub">${restaurant.description}</p>
+                        <p class="delivery">${restaurant.delivery}</p>
+                    </div>
+                    <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
+                </div>
+            `;
 
-$(".back-menus").bind("click", function(e){
-    e.preventDefault();
-    $(".filter-wrapper").animate({
-        scrollLeft: "-=" + stepFilter + "px"
-    });
-})
+            restaurantElement.addEventListener('click', () => showMessage(restaurant.name));
 
-$(".next-menus").bind("click", function(e){
-    e.preventDefault();
-    $(".filter-wrapper").animate({
-        scrollLeft: "+=" + stepFilter + "px"
-    });
-})
+            restaurantContainer.appendChild(restaurantElement);
+        });
+    }
+
+    function showMessage(name) {
+        alert(`You clicked on ${name}`);
+    }
+})();
