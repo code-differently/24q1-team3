@@ -1,0 +1,50 @@
+body, html {
+background-image: url(https://themewagon.github.io/delfood/images/body-bg.jpg);
+}
+
+.nav-link {
+  font-size: 18px;
+  color: white;
+  position: relative;
+  text-decoration: none;
+}
+.nav-link:hover {
+  color: #ffc107; 
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px; 
+  width: 0%;
+  height: 2px;
+  background-color: #ffc107; 
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+
+.animated-text {
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
+  transition: color 0.3s ease;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+
+  .heading_center {
+    text-align: center;
+  }
+  
+  .box {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .detail-box {
+    margin-left: 20px; /* Adjust the margin to create a gap */
+  }
