@@ -85,8 +85,7 @@ public class UserService {
      * @throws UserNotFoundException if no user is found with the given ID.
      */
     public void deleteUser(Long id) {
-        // Check if the user exists
-        getUserById(id); // This will throw UserNotFoundException if user not found
+        getUserById(id);
 
         userRepository.deleteById(id);
     }

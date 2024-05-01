@@ -29,6 +29,15 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
     void deleteById(@NonNull Long id);
 
     /**
+     * Retrieves reviews by restaurant name and location.
+     *
+     * @param restaurantName The name of the restaurant.
+     * @param location       The location of the restaurant.
+     * @return A list of reviews matching the specified restaurant name and location.
+     */
+    List<Review> findByRestaurantNameAndLocation(String restaurantName, String location);
+
+    /**
      * Retrieves all reviews associated with a specific restaurant.
      *
      * @param restaurantId The ID of the restaurant.

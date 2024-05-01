@@ -59,7 +59,7 @@ public class PaymentService {
      */
     public Payment updatePayment(Long id, Payment payment) {
         if (paymentRepository.existsById(id)) {
-            payment.setId(id); // Ensure the ID matches the path variable
+            payment.setId(id);
             return paymentRepository.save(payment);
         }
         throw new PaymentNotFoundException("Payment with ID " + id + " not found");
