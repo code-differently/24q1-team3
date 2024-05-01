@@ -99,4 +99,13 @@ public class Restaurant {
         this.dishes = dishes;
     }
 
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", dishes=" + dishes +
+                '}';
+    }
 }

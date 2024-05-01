@@ -109,4 +109,15 @@ public class Order {
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", user=" + user +
+                ", restaurant=" + restaurant +
+                ", orderDate=" + orderDate +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
 }

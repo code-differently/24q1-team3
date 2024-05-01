@@ -4,76 +4,43 @@ import com.fooddifferently.fd.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 /**
- * Repository class for managing users in the application
+ * Repository interface for managing User entities.
  */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
     /**
-     * Retrieves a user by their email
+     * Find a user by their username.
      *
-     * @param email The email of the user to retrieve
-     * @return The user with the specified email
-     */
-    User findByEmail(String email);
-
-    /**
-     * Retrieves a list of users whose username contains the specified string
-     *
-     * @param username The string to search for in the username
-     * @return A list of users whose username contains the specified string
-     */
-    List<User> findByUsernameContaining(String username);
-
-    /**
-     * Retrieves a user by their username
-     *
-     * @param username The username of the user to retrieve
-     * @return The user with the specified username
+     * @param username The username to search for.
+     * @return An Optional containing the user if found, or empty if not found.
      */
     Optional<User> findByUsername(String username);
 
     /**
-     * Checks if a user with the specified username exists
+     * Find a user by their email address.
      *
-     * @param username The username to check for
-     * @return True if a user with the specified username exists, false otherwise
+     * @param email The email address to search for.
+     * @return The user with the specified email address.
+     */
+    User findByEmail(String email);
+
+    /**
+     * Check if a user exists with the given username.
+     *
+     * @param username The username to check.
+     * @return True if a user with the specified username exists, otherwise false.
      */
     boolean existsByUsername(String username);
 
     /**
-     * Checks if a user with the specified email exists
+     * Check if a user exists with the given email address.
      *
-     * @param email The email to check for
-     * @return True if a user with the specified email exists, false otherwise
+     * @param email The email address to check.
+     * @return True if a user with the specified email address exists, otherwise false.
      */
     boolean existsByEmail(String email);
-
-    /**
-     * Retrieves a list of users whose first name contains the specified string
-     *
-     * @param firstName The string to search for in the first name
-     * @return A list of users whose first name contains the specified string
-     */
-    List<User> findByFirstNameContaining(String firstName);
-
-    /**
-     * Retrieves a list of users whose last name contains the specified string
-     *
-     * @param lastName The string to search for in the last name
-     * @return A list of users whose last name contains the specified string
-     */
-    List<User> findByLastNameContaining(String lastName);
-
-    /**
-     * Retrieves a list of users whose email contains the specified string
-     *
-     * @param email The string to search for in the email
-     * @return A list of users whose email contains the specified string
-     */
-    List<User> findByEmailContaining(String email);
 }
