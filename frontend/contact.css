@@ -4,6 +4,10 @@ body html {
         padding-top: 100px;
     }
   
+    *{
+     background-image: url(https://themewagon.github.io/delfood/images/body-bg.jpg);
+    }
+
 
   .cascading-right {
     margin-right: -50px;
