@@ -22,14 +22,25 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false)
+    private String firstName;
+
+    @Column(nullable = false)
+    private String lastName;
+
+    @Column(nullable = false)
+    private int age;
 
     public User() {
     }
 
-    public User(String username, String password, String email) {
+    public User(String username, String password, String email, String firstName, String lastName, int age) {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
     }
 
     /**
@@ -104,5 +115,70 @@ public class User {
         this.email = email;
     }
 
-    // Other getter and setter methods for other properties
+    /**
+     * Get the first name of the user.
+     *
+     * @return The first name of the user.
+     */
+    public String getFirstName() {
+        return firstName;
+    }
+
+    /**
+     * Set the first name of the user.
+     *
+     * @param firstName The first name of the user.
+     */
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    /**
+     * Get the last name of the user.
+     *
+     * @return The last name of the user.
+     */
+    public String getLastName() {
+        return lastName;
+    }
+
+    /**
+     * Set the last name of the user.
+     *
+     * @param lastName The last name of the user.
+     */
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    /**
+     * Get the age of the user.
+     *
+     * @return The age of the user.
+     */
+    public int getAge() {
+        return age;
+    }
+
+    /**
+     * Set the age of the user.
+     *
+     * @param age The age of the user.
+     */
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }

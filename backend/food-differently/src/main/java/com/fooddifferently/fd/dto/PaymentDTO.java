@@ -13,7 +13,7 @@ public class PaymentDTO {
     private Long userId;
 
     public PaymentDTO() {
-        // Default constructor
+
     }
 
     public PaymentDTO(Long id, String paymentMethod, Long userId) {

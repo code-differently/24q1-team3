@@ -6,116 +6,88 @@ import com.fooddifferently.fd.model.User;
 import com.fooddifferently.fd.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
-import java.util.Optional;
 
 /**
- * Service class for managing users in the application
+ * Service class for managing User entities.
  */
 @Service
 public class UserService {
 
+    private final UserRepository userRepository;
+
     @Autowired
-    private UserRepository userRepository;
-
-    /**
-     * Registers a new user in the application
-     *
-     * @param newUser The user to be registered
-     * @return The registered user
-     */
-    public User registerUser(User newUser) {
-        validateUser(newUser);
-        return userRepository.save(newUser);
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     /**
-     * Retrieves a user by their ID
+     * Retrieve all users from the database.
      *
-     * @param userId The ID of the user to retrieve
-     * @return The user with the specified ID
-     */
-    public User getUserById(Long userId) {
-        return userRepository.findById(userId)
-                .orElseThrow(() -> new UserNotFoundException("User not found with ID: " + userId));
-    }
-
-    /**
-     * Updates an existing user
-     *
-     * @param userId      The ID of the user to update
-     * @param updatedUser The updated user object
-     * @return The updated user
-     */
-    public User updateUser(Long userId, User updatedUser) {
-        validateUser(updatedUser);
-        User existingUser = getUserById(userId);
-        existingUser.setUsername(updatedUser.getUsername());
-        existingUser.setEmail(updatedUser.getEmail());
-
-        return userRepository.save(existingUser);
-    }
-
-    /**
-     * Deletes a user by their ID
-     *
-     * @param userId The ID of the user to delete
-     */
-    public void deleteUser(Long userId) {
-        userRepository.deleteById(userId);
-    }
-
-    /**
-     * Retrieves all users in the application
-     *
-     * @return A list of all users
+     * @return List of all users.
      */
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
     /**
-     * Searches for users by their username
+     * Retrieve a user by their ID.
      *
-     * @param username The username to search for
-     * @return A list of users with the specified username
+     * @param id The ID of the user to retrieve.
+     * @return The user with the specified ID.
+     * @throws UserNotFoundException if no user is found with the given ID.
      */
-    public List<User> searchUsersByUsername(String username) {
-        return userRepository.findByUsernameContaining(username);
+    public User getUserById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new UserNotFoundException("User with ID " + id + " not found"));
     }
 
     /**
-     * Validates the user object before saving it to the database
+     * Create a new user.
      *
-     * @param user The user to validate
+     * @param user The user object containing user details.
+     * @return The newly created user.
+     * @throws UserAlreadyExistsException if a user with the same username or email already exists.
      */
-    private void validateUser(User user) {
-        if (user.getUsername() == null || user.getUsername().isEmpty()) {
-            throw new IllegalArgumentException("Username cannot be empty");
+    public User createUser(User user) {
+        if (userRepository.existsByUsername(user.getUsername())) {
+            throw new UserAlreadyExistsException("User with username " + user.getUsername() + " already exists");
         }
+
+        if (userRepository.existsByEmail(user.getEmail())) {
+            throw new UserAlreadyExistsException("User with email " + user.getEmail() + " already exists");
+        }
+
+        // Save the new user to the database
+        return userRepository.save(user);
     }
 
     /**
-     * Creates a new user
+     * Update an existing user.
      *
-     * @param newUser The user to be created
-     * @return The created user
+     * @param id   The ID of the user to update.
+     * @param user The updated user object.
+     * @return The updated user.
+     * @throws UserNotFoundException if no user is found with the given ID.
      */
-    public User createUser(User newUser) {
-        Optional<User> existingUserByUsername = userRepository.findByUsername(newUser.getUsername());
-        User existingUserByEmail = userRepository.findByEmail(newUser.getEmail());
+    public User updateUser(Long id, User user) {
+        getUserById(id);
 
-        if (existingUserByUsername.isPresent()) {
-            throw new UserAlreadyExistsException("User with username " + newUser.getUsername() + " already exists");
-        }
+        user.setId(id);
+        return userRepository.save(user);
+    }
 
-        if (existingUserByEmail != null) {
-            throw new UserAlreadyExistsException("User with email " + newUser.getEmail() + " already exists");
-        }
+    /**
+     * Delete a user by their ID.
+     *
+     * @param id The ID of the user to delete.
+     * @throws UserNotFoundException if no user is found with the given ID.
+     */
+    public void deleteUser(Long id) {
+        // Check if the user exists
+        getUserById(id); // This will throw UserNotFoundException if user not found
 
-        /**
-         * If the user does not already exist, save the new user to the database
-         */
-        return userRepository.save(newUser);
+        userRepository.deleteById(id);
     }
 }
