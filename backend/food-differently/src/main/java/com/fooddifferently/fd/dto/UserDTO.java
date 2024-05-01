@@ -1,46 +1,39 @@
 package com.fooddifferently.fd.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 /**
- * Data Transfer Object (DTO) representing a user.
+ * Data Transfer Object (DTO) representing a user in the system.
  */
 public class UserDTO {
 
-    /**
-     * The unique identifier of the user.
-     */
-    private Long userId;
+    private Long id;
 
-    /**
-     * The username of the user.
-     */
+    @NotBlank(message = "Username is required")
     private String username;
 
-    /**
-     * The email address of the user.
-     */
+    @NotBlank(message = "Password is required")
+    @Size(min = 6, message = "Password must be at least 6 characters")
+    private String password;
+
+    @NotBlank(message = "Email is required")
+    @Email(message = "Invalid email format")
     private String email;
 
-    /**
-     * The first name of the user.
-     */
     private String firstName;
 
-    /**
-     * The last name of the user.
-     */
     private String lastName;
 
-    /**
-     * The phone number of the user.
-     */
+    @Size(max = 15, message = "Phone number must be up to 15 characters")
     private String phoneNumber;
 
-    /**
-     * The address of the user.
-     */
-    private AddressDTO address;
+    private String address;
 
-    // Other properties as needed
+    @JsonProperty("user_age")
+    private Integer age;
 
     /**
      * Default constructor.
@@ -49,131 +42,177 @@ public class UserDTO {
     }
 
     /**
-     * Constructs a UserDTO object with the specified parameters.
+     * Constructor with essential user details.
      *
-     * @param userId     the unique identifier of the user
-     * @param username   the username of the user
-     * @param email      the email address of the user
-     * @param firstName  the first name of the user
-     * @param lastName   the last name of the user
-     * @param phoneNumber the phone number of the user
-     * @param address    the address of the user
+     * @param username The username of the user.
+     * @param password The password of the user.
+     * @param email    The email address of the user.
      */
-    public UserDTO(Long userId, String username, String email, String firstName, String lastName,
-                   String phoneNumber, AddressDTO address) {
-        this.userId = userId;
+    public UserDTO(String username, String password, String email) {
         this.username = username;
+        this.password = password;
         this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
     }
 
     /**
-     * Returns the unique identifier of the user.
-     */
-    public Long getUserId() {
-        return userId;
-    }
-
-    /**
-     * Sets the unique identifier of the user.
+     * Get the ID of the user.
      *
-     * @param userId the unique identifier of the user
+     * @return The ID of the user.
      */
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public Long getId() {
+        return id;
     }
 
     /**
-     * Returns the username of the user.
+     * Set the ID of the user.
+     *
+     * @param id The ID of the user.
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * Get the username of the user.
+     *
+     * @return The username of the user.
      */
     public String getUsername() {
         return username;
     }
 
     /**
-     * Sets the username of the user.
+     * Set the username of the user.
      *
-     * @param username the username of the user
+     * @param username The username of the user.
      */
     public void setUsername(String username) {
         this.username = username;
     }
 
     /**
-     * Returns the email address of the user.
+     * Get the password of the user.
+     *
+     * @return The password of the user.
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Set the password of the user.
+     *
+     * @param password The password of the user.
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * Get the email address of the user.
+     *
+     * @return The email address of the user.
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     * Sets the email address of the user.
+     * Set the email address of the user.
      *
-     * @param email the email address of the user
+     * @param email The email address of the user.
      */
     public void setEmail(String email) {
         this.email = email;
     }
 
     /**
-     * Returns the first name of the user.
+     * Get the first name of the user.
+     *
+     * @return The first name of the user.
      */
     public String getFirstName() {
         return firstName;
     }
 
     /**
-     * Sets the first name of the user.
+     * Set the first name of the user.
      *
-     * @param firstName the first name of the user
+     * @param firstName The first name of the user.
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
     /**
-     * Returns the last name of the user.
+     * Get the last name of the user.
+     *
+     * @return The last name of the user.
      */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     * Set the last name of the user.
+     *
+     * @param lastName The last name of the user.
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
     /**
-     * Returns the phone number of the user.
+     * Get the phone number of the user.
+     *
+     * @return The phone number of the user.
      */
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
     /**
-     * Sets the phone number of the user.
+     * Set the phone number of the user.
      *
-     * @param phoneNumber the phone number of the user
+     * @param phoneNumber The phone number of the user.
      */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
     /**
-     * Returns the address of the user.
+     * Get the address of the user.
+     *
+     * @return The address of the user.
      */
-    public AddressDTO getAddress() {
+    public String getAddress() {
         return address;
     }
 
     /**
-     * Sets the address of the user.
+     * Set the address of the user.
      *
-     * @param address the address of the user
+     * @param address The address of the user.
      */
-    public void setAddress(AddressDTO address) {
+    public void setAddress(String address) {
         this.address = address;
+    }
+
+    /**
+     * Get the age of the user.
+     *
+     * @return The age of the user.
+     */
+    public Integer getAge() {
+        return age;
+    }
+
+    /**
+     * Set the age of the user.
+     *
+     * @param age The age of the user.
+     */
+    public void setAge(Integer age) {
+        this.age = age;
     }
 }
