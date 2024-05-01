@@ -82,4 +82,12 @@ public class Payment {
         this.user = user;
     }
 
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "id=" + id +
+                ", paymentMethod='" + paymentMethod + '\'' +
+                ", user=" + user +
+                '}';
+    }
 }

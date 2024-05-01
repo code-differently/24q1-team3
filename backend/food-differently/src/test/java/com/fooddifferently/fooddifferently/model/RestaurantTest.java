@@ -4,8 +4,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-import com.fooddifferently.fooddifferently.dto.MenuItemDTO;
-import com.fooddifferently.fooddifferently.dto.RestaurantDTO;
+import com.fooddifferently.fd.dto.RestaurantDTO;
 
 public class RestaurantDTOTest {
 

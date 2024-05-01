@@ -3,18 +3,27 @@ package com.fooddifferently.fd.dto;
 import java.util.List;
 
 /**
- * Data Transfer Object (DTO) for representing restaurant information.
+ * Data Transfer Object (DTO) for transferring restaurant data.
  */
 public class RestaurantDTO {
 
     private Long id;
     private String name;
     private String address;
-    private String typeOfFood;
-    private List<MenuItemDTO> menuItems;
+    private List<DishDTO> dishes;
+
+    public RestaurantDTO() {
+    }
+
+    public RestaurantDTO(Long id, String name, String address, List<DishDTO> dishes) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.dishes = dishes;
+    }
 
     /**
-     * Retrieves the ID of the restaurant.
+     * Get the ID of the restaurant.
      *
      * @return The ID of the restaurant.
      */
@@ -23,16 +32,16 @@ public class RestaurantDTO {
     }
 
     /**
-     * Sets the ID of the restaurant.
+     * Set the ID of the restaurant.
      *
-     * @param id The ID to set.
+     * @param id The ID of the restaurant.
      */
     public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     * Retrieves the name of the restaurant.
+     * Get the name of the restaurant.
      *
      * @return The name of the restaurant.
      */
@@ -41,16 +50,16 @@ public class RestaurantDTO {
     }
 
     /**
-     * Sets the name of the restaurant.
+     * Set the name of the restaurant.
      *
-     * @param name The name to set.
+     * @param name The name of the restaurant.
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Retrieves the address of the restaurant.
+     * Get the address of the restaurant.
      *
      * @return The address of the restaurant.
      */
@@ -59,47 +68,29 @@ public class RestaurantDTO {
     }
 
     /**
-     * Sets the address of the restaurant.
+     * Set the address of the restaurant.
      *
-     * @param address The address to set.
+     * @param address The address of the restaurant.
      */
     public void setAddress(String address) {
         this.address = address;
     }
 
     /**
-     * Retrieves the type of food served by the restaurant.
+     * Get the list of dishes in the restaurant.
      *
-     * @return The type of food served by the restaurant.
+     * @return The list of dishes.
      */
-    public String getTypeOfFood() {
-        return typeOfFood;
+    public List<DishDTO> getDishes() {
+        return dishes;
     }
 
     /**
-     * Sets the type of food served by the restaurant.
+     * Set the list of dishes in the restaurant.
      *
-     * @param typeOfFood The type of food to set.
+     * @param dishes The list of dishes.
      */
-    public void setTypeOfFood(String typeOfFood) {
-        this.typeOfFood = typeOfFood;
-    }
-
-    /**
-     * Retrieves the list of menu items offered by the restaurant.
-     *
-     * @return The list of menu items offered by the restaurant.
-     */
-    public List<MenuItemDTO> getMenuItems() {
-        return menuItems;
-    }
-
-    /**
-     * Sets the list of menu items offered by the restaurant.
-     *
-     * @param menuItems The list of menu items to set.
-     */
-    public void setMenuItems(List<MenuItemDTO> menuItems) {
-        this.menuItems = menuItems;
+    public void setDishes(List<DishDTO> dishes) {
+        this.dishes = dishes;
     }
 }

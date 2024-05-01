@@ -18,6 +18,7 @@ public class UserController {
 
     /**
      * Constructor for UserController.
+     *
      * @param userService The user service to be used by the controller.
      */
     @Autowired
@@ -27,6 +28,7 @@ public class UserController {
 
     /**
      * Endpoint to get all users.
+     *
      * @return List of all users.
      */
     @GetMapping("/")
@@ -36,6 +38,7 @@ public class UserController {
 
     /**
      * Endpoint to get a specific user by their ID.
+     *
      * @param id The ID of the user to retrieve.
      * @return The user with the specified ID.
      */
@@ -46,6 +49,7 @@ public class UserController {
 
     /**
      * Endpoint to create a new user.
+     *
      * @param user The user object containing the details of the new user.
      * @return The created user object.
      */
@@ -56,7 +60,8 @@ public class UserController {
 
     /**
      * Endpoint to update an existing user.
-     * @param id The ID of the user to update.
+     *
+     * @param id   The ID of the user to update.
      * @param user The updated user object.
      * @return The updated user object.
      */
@@ -67,6 +72,7 @@ public class UserController {
 
     /**
      * Endpoint to delete a user by their ID.
+     *
      * @param id The ID of the user to delete.
      */
     @DeleteMapping("/{id}")
