@@ -1,0 +1,22 @@
+{
+  "name": "24q1-team3",
+  "version": "1.0.0",
+  "description": "* Team Lead: Chukwuma * Team Member: Sherlin * Team Member: Kyvon * Team Member: Javyen",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2",
+    "yelp": "^1.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
