@@ -14,7 +14,7 @@
 	<name>food-differently</name>
 	<description>FoodDifferently is a modern web application built with Spring Boot, designed to revolutionize the way people experience food delivery. With a sleek and intuitive user interface, FoodDifferently connects users with a diverse range of restaurants and eateries, offering a unique culinary experience tailored to individual tastes. Powered by Spring Web, Spring Data JPA, and Spring Security, FoodDifferently ensures secure and seamless transactions, while providing restaurants with a platform to showcase their specialties. Whether it&apos;s a quick bite or a gourmet feast, FoodDifferently transforms the food delivery landscape, making every meal an unforgettable journey.</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -36,10 +36,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

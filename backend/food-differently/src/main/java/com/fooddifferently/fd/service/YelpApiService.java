@@ -1,13 +1,16 @@
 package com.fooddifferently.fd.service;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * Service class for integrating with the Yelp API to retrieve restaurant information and reviews.
@@ -80,7 +83,10 @@ public class YelpApiService {
      */
     private List<Map<String, Object>> callYelpApi(String url) {
         String authHeader = "Bearer " + apiKey;
-        Map<String, Object> response = restTemplate.getForObject(url, Map.class, Collections.singletonMap("Authorization", authHeader));
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", authHeader);
+        HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
+        var response = restTemplate.exchange(url, HttpMethod.GET, entity, Map.class).getBody();
         if (response != null && response.containsKey("businesses")) {
             return (List<Map<String, Object>>) response.get("businesses");
         }

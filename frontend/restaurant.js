@@ -6,7 +6,7 @@
 
     async function fetchRestaurantsFromYelp() {
         try {
-            const response = await fetch('http://127.0.0.1:5501/frontend/restaurant.html');
+            const response = await fetch('http://127.0.0.1:5501/restaurants');
             if (!response.ok) {
                 throw new Error(`Failed to fetch restaurants from Yelp API: ${response.status} ${response.statusText}`);
             }
@@ -14,8 +14,7 @@
             if (!contentType || !contentType.includes('application/json')) {
                 throw new Error(`Invalid response content type: ${contentType}`);
             }
-            const data = await response.json();
-            return data.businesses; 
+            return response.json(); 
         } catch (error) {
             console.error(error);
             return []; 
@@ -35,8 +34,8 @@
                 <div class="detail-desc">
                     <div class="detail-name">
                         <a href="${restaurant.url}"><h4>${restaurant.name}</h4></a>
-                        <p class="detail-sub">${restaurant.categories.map(category => category.title).join(', ')}</p>
-                        <p class="delivery">${restaurant.location.address1}</p>
+                        <p class="detail-sub">${restaurant.categories?.map(category => category.title).join(', ')}</p>
+                        <p class="delivery">${restaurant.location?.address1}</p>
                     </div>
                     <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
                 </div>
