@@ -1,67 +1,93 @@
 package com.fooddifferently.fd.controller;
+
 import com.fooddifferently.fd.model.Review;
 import com.fooddifferently.fd.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+
 /**
- * Controller class for handling review-related operations.
+ * Controller class for managing review endpoints.
  */
 @RestController
 @RequestMapping("/reviews")
 public class ReviewController {
+
     private final ReviewService reviewService;
+
     @Autowired
     public ReviewController(ReviewService reviewService) {
         this.reviewService = reviewService;
     }
+
     /**
-     * Retrieves a review by its ID.
+     * Endpoint to retrieve all reviews.
+     *
+     * @return ResponseEntity with a list of all reviews and HTTP status OK.
+     */
+    @GetMapping
+    public ResponseEntity<List<Review>> getAllReviews() {
+        List<Review> reviews = reviewService.getAllReviews();
+        return new ResponseEntity<>(reviews, HttpStatus.OK);
+    }
+
+    /**
+     * Endpoint to retrieve a review by ID.
      *
      * @param id The ID of the review to retrieve.
-     * @return The review with the specified ID.
+     * @return ResponseEntity with the review and HTTP status OK, or HTTP status NOT_FOUND if the review is not found.
      */
     @GetMapping("/{id}")
-    public Review getReviewById(@PathVariable Long id) {
-        return reviewService.getReviewById(id);
+    public ResponseEntity<Review> getReviewById(@PathVariable Long id) {
+        Review review = reviewService.getReviewById(id);
+        if (review != null) {
+            return new ResponseEntity<>(review, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
+
     /**
-     * Creates a new review.
+     * Endpoint to create a new review.
      *
-     * @param review The review object containing review details.
-     * @return The newly created review.
+     * @param review The review object to create.
+     * @return ResponseEntity with the created review and HTTP status CREATED.
      */
-    @PostMapping("/create")
-    public Review createReview(@RequestBody Review review) {
-        return reviewService.createReview(review);
+    @PostMapping
+    public ResponseEntity<Review> createReview(@RequestBody Review review) {
+        Review createdReview = reviewService.createReview(review);
+        return new ResponseEntity<>(createdReview, HttpStatus.CREATED);
     }
+
     /**
-     * Updates an existing review.
+     * Endpoint to update an existing review.
      *
      * @param id     The ID of the review to update.
      * @param review The updated review object.
-     * @return The updated review.
+     * @return ResponseEntity with the updated review and HTTP status OK, or HTTP status NOT_FOUND if the review is not found.
      */
     @PutMapping("/{id}")
-    public Review updateReview(@PathVariable Long id, @RequestBody Review review) {
-        return reviewService.updateReview(id, review);
+    public ResponseEntity<Review> updateReview(@PathVariable Long id, @RequestBody Review review) {
+        Review updatedReview = reviewService.updateReview(id, review);
+        if (updatedReview != null) {
+            return new ResponseEntity<>(updatedReview, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
+
     /**
-     * Deletes a review by its ID.
+     * Endpoint to delete a review by ID.
      *
      * @param id The ID of the review to delete.
+     * @return ResponseEntity with HTTP status NO_CONTENT.
      */
     @DeleteMapping("/{id}")
-    public void deleteReview(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteReview(@PathVariable Long id) {
         reviewService.deleteReview(id);
-    }
-    /**
-     * Retrieves all reviews.
-     *
-     * @return A list of all reviews.
-     */
-    @GetMapping("/all")
-    public List<Review> getAllReviews() {
-        return reviewService.getAllReviews();
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

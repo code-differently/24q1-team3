@@ -12,68 +12,59 @@ import java.util.Optional;
 public class ReviewService {
 
     private final ReviewRepository reviewRepository;
+    private final YelpApiService yelpApiService;
 
     @Autowired
-    public ReviewService(ReviewRepository reviewRepository) {
+    public ReviewService(ReviewRepository reviewRepository, YelpApiService yelpApiService) {
         this.reviewRepository = reviewRepository;
+        this.yelpApiService = yelpApiService;
     }
 
-    /**
-     * Retrieves a review by its ID.
-     *
-     * @param id The ID of the review to retrieve.
-     * @return The review with the specified ID.
-     */
     public Review getReviewById(Long id) {
         Optional<Review> optionalReview = reviewRepository.findById(id);
         return optionalReview.orElse(null);
     }
 
-    /**
-     * Creates a new review.
-     *
-     * @param review The review object containing review details.
-     * @return The newly created review.
-     */
     public Review createReview(Review review) {
-        // Additional logic can be added here before saving
         return reviewRepository.save(review);
     }
 
-    /**
-     * Updates an existing review.
-     *
-     * @param id     The ID of the review to update.
-     * @param review The updated review object.
-     * @return The updated review.
-     */
     public Review updateReview(Long id, Review review) {
-        // Check if the review exists
         Optional<Review> optionalExistingReview = reviewRepository.findById(id);
         if (optionalExistingReview.isPresent()) {
-            // Update the existing review with the new data
-            review.setId(id); // Ensure the ID matches the path variable
+            review.setId(id);
             return reviewRepository.save(review);
         }
-        return null; // Review not found
+        return null;
     }
 
-    /**
-     * Deletes a review by its ID.
-     *
-     * @param id The ID of the review to delete.
-     */
     public void deleteReview(Long id) {
         reviewRepository.deleteById(id);
     }
 
-    /**
-     * Retrieves all reviews.
-     *
-     * @return A list of all reviews.
-     */
     public List<Review> getAllReviews() {
         return reviewRepository.findAll();
     }
-}
 
+    /**
+     * Retrieve Yelp reviews for a given restaurant and merge them with existing reviews.
+     *
+     * @param restaurantName The name of the restaurant.
+     * @param location       The location of the restaurant.
+     */
+    public void mergeYelpReviews(String restaurantName, String location) {
+        List<String> yelpReviews = yelpApiService.getReviews(restaurantName, location);
+
+        List<Review> existingReviews = reviewRepository.findByRestaurantNameAndLocation(restaurantName, location);
+
+        for (String yelpReview : yelpReviews) {
+            Review newReview = new Review();
+            newReview.setRestaurantName(restaurantName);
+            newReview.setLocation(location);
+            newReview.setComment(yelpReview);
+            existingReviews.add(newReview);
+        }
+
+        reviewRepository.saveAll(existingReviews);
+    }
+}

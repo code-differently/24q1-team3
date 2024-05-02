@@ -1,15 +1,12 @@
 package com.fooddifferently.fd.model;
 
 import jakarta.persistence.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents a restaurant in the system.
+ * Entity class representing a restaurant.
  */
 @Entity
-@Table(name = "restaurants")
 public class Restaurant {
 
     @Id
@@ -22,10 +19,32 @@ public class Restaurant {
     @Column(nullable = false)
     private String address;
 
-    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
-    private List<Dish> dishes = new ArrayList<>();
+    @Column
+    private String typeOfFood;
 
-    // Other properties and methods
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Dish> dishes;
+
+    /**
+     * Default constructor for Restaurant.
+     */
+    public Restaurant() {
+    }
+
+    /**
+     * Constructor with parameters for Restaurant.
+     *
+     * @param name       The name of the restaurant.
+     * @param address    The address of the restaurant.
+     * @param typeOfFood The type of food served at the restaurant.
+     * @param dishes     The list of dishes offered at the restaurant.
+     */
+    public Restaurant(String name, String address, String typeOfFood, List<Dish> dishes) {
+        this.name = name;
+        this.address = address;
+        this.typeOfFood = typeOfFood;
+        this.dishes = dishes;
+    }
 
     /**
      * Get the ID of the restaurant.
@@ -39,7 +58,7 @@ public class Restaurant {
     /**
      * Set the ID of the restaurant.
      *
-     * @param id The ID of the restaurant.
+     * @param id The ID of the restaurant to set.
      */
     public void setId(Long id) {
         this.id = id;
@@ -57,7 +76,7 @@ public class Restaurant {
     /**
      * Set the name of the restaurant.
      *
-     * @param name The name of the restaurant.
+     * @param name The name of the restaurant to set.
      */
     public void setName(String name) {
         this.name = name;
@@ -75,36 +94,60 @@ public class Restaurant {
     /**
      * Set the address of the restaurant.
      *
-     * @param address The address of the restaurant.
+     * @param address The address of the restaurant to set.
      */
     public void setAddress(String address) {
         this.address = address;
     }
 
     /**
-     * Get the menu of the restaurant.
+     * Get the type of food served at the restaurant.
      *
-     * @return The menu of the restaurant.
+     * @return The type of food.
      */
-    public List<Dish> getMenu() {
+    public String getTypeOfFood() {
+        return typeOfFood;
+    }
+
+    /**
+     * Set the type of food served at the restaurant.
+     *
+     * @param typeOfFood The type of food to set.
+     */
+    public void setTypeOfFood(String typeOfFood) {
+        this.typeOfFood = typeOfFood;
+    }
+
+    /**
+     * Get the list of dishes offered at the restaurant.
+     *
+     * @return The list of dishes.
+     */
+    public List<Dish> getDishes() {
         return dishes;
     }
 
     /**
-     * Set the menu of the restaurant.
+     * Set the list of dishes offered at the restaurant.
      *
-     * @param menu The menu of the restaurant.
+     * @param dishes The list of dishes to set.
      */
-    public void setMenu(List<Dish> menu) {
+    public void setDishes(List<Dish> dishes) {
         this.dishes = dishes;
     }
 
+    /**
+     * Override of the toString method to provide a string representation of the Restaurant object.
+     *
+     * @return A string representation of the Restaurant object.
+     */
     @Override
     public String toString() {
         return "Restaurant{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
+                ", typeOfFood='" + typeOfFood + '\'' +
                 ", dishes=" + dishes +
                 '}';
     }

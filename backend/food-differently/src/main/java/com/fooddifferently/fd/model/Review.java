@@ -5,124 +5,127 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+
 /**
- * Represents a review entity.
+ * Entity class representing a review.
  */
 @Entity
 public class Review {
 
-    
-     // Unique identifier for the review.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    
-    // Identifier for the reviewed item.
-     
-    private String itemId;
-
-    
-    // Identifier for the reviewer.
-     
-    private String reviewerId;
-
-    
-    // Rating given in the review.
-     
+    private String restaurantName;
+    private String location;
+    private String userId;
     private int rating;
-
-    
-    // Comment provided in the review.
-    
     private String comment;
 
-    
-    // Default constructor for creating a Review object.
-     
+    // Default constructor
     public Review() {
     }
 
     /**
-     * Constructs a review with specified attributes.
+     * Constructor with parameters.
      *
-     * @param itemId     The identifier of the item being reviewed.
-     * @param reviewerId The identifier of the reviewer.
-     * @param rating     The rating given in the review.
-     * @param comment    The comment provided in the review.
+     * @param restaurantName The name of the restaurant associated with the review.
+     * @param location       The location of the restaurant associated with the review.
+     * @param userId         The ID of the user who submitted the review.
+     * @param rating         The rating given in the review.
+     * @param comment        The comment provided in the review.
      */
-    public Review(String itemId, String reviewerId, int rating, String comment) {
-        this.itemId = itemId;
-        this.reviewerId = reviewerId;
+    public Review(String restaurantName, String location, String userId, int rating, String comment) {
+        this.restaurantName = restaurantName;
+        this.location = location;
+        this.userId = userId;
         this.rating = rating;
         this.comment = comment;
     }
 
     /**
-     * Retrieves the unique identifier of the review.
+     * Get the ID of the review.
      *
-     * @return The unique identifier of the review.
+     * @return The ID of the review.
      */
     public Long getId() {
         return id;
     }
 
     /**
-     * Sets the unique identifier of the review.
+     * Set the ID of the review.
      *
-     * @param id The unique identifier to set.
+     * @param id The ID of the review to set.
      */
     public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     * Retrieves the identifier of the item being reviewed.
+     * Get the name of the restaurant associated with the review.
      *
-     * @return The identifier of the item being reviewed.
+     * @return The name of the restaurant.
      */
-    public String getItemId() {
-        return itemId;
+    public String getRestaurantName() {
+        return restaurantName;
     }
 
     /**
-     * Sets the identifier of the item being reviewed.
+     * Set the name of the restaurant associated with the review.
      *
-     * @param itemId The identifier to set.
+     * @param restaurantName The name of the restaurant to set.
      */
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
+    public void setRestaurantName(String restaurantName) {
+        this.restaurantName = restaurantName;
     }
 
     /**
-     * Retrieves the identifier of the reviewer.
+     * Get the location of the restaurant associated with the review.
      *
-     * @return The identifier of the reviewer.
+     * @return The location of the restaurant.
      */
-    public String getReviewerId() {
-        return reviewerId;
+    public String getLocation() {
+        return location;
     }
 
     /**
-     * Sets the identifier of the reviewer.
+     * Set the location of the restaurant associated with the review.
      *
-     * @param reviewerId The identifier to set.
+     * @param location The location of the restaurant to set.
      */
-    public void setReviewerId(String reviewerId) {
-        this.reviewerId = reviewerId;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     /**
-     * Retrieves the rating given in the review.
+     * Get the ID of the user who submitted the review.
      *
-     * @return The rating given in the review.
+     * @return The ID of the user.
+     */
+    public String getUserId() {
+        return userId;
+    }
+
+    /**
+     * Set the ID of the user who submitted the review.
+     *
+     * @param userId The ID of the user to set.
+     */
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    /**
+     * Get the rating given in the review.
+     *
+     * @return The rating.
      */
     public int getRating() {
         return rating;
     }
 
     /**
-     * Sets the rating given in the review.
+     * Set the rating for the review.
      *
      * @param rating The rating to set.
      */
@@ -131,16 +134,16 @@ public class Review {
     }
 
     /**
-     * Retrieves the comment provided in the review.
+     * Get the comment provided in the review.
      *
-     * @return The comment provided in the review.
+     * @return The comment.
      */
     public String getComment() {
         return comment;
     }
 
     /**
-     * Sets the comment provided in the review.
+     * Set the comment for the review.
      *
      * @param comment The comment to set.
      */

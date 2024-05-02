@@ -6,17 +6,32 @@ package com.fooddifferently.fd.dto;
 public class ReviewDTO {
 
     private Long id;
-    private String restaurantId;
+    private String restaurantName;
+    private String location;
     private String userId;
     private int rating;
     private String comment;
 
+    /**
+     * Default constructor.
+     */
     public ReviewDTO() {
     }
 
-    public ReviewDTO(Long id, String restaurantId, String userId, int rating, String comment) {
+    /**
+     * Constructor with parameters.
+     *
+     * @param id             The ID of the review.
+     * @param restaurantName The name of the restaurant associated with the review.
+     * @param location       The location of the restaurant associated with the review.
+     * @param userId         The ID of the user who submitted the review.
+     * @param rating         The rating given in the review.
+     * @param comment        The comment provided in the review.
+     */
+    public ReviewDTO(Long id, String restaurantName, String location, String userId, int rating, String comment) {
         this.id = id;
-        this.restaurantId = restaurantId;
+        this.restaurantName = restaurantName;
+        this.location = location;
         this.userId = userId;
         this.rating = rating;
         this.comment = comment;
@@ -34,28 +49,46 @@ public class ReviewDTO {
     /**
      * Set the ID of the review.
      *
-     * @param id The ID of the review.
+     * @param id The ID of the review to set.
      */
     public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     * Get the ID of the restaurant associated with the review.
+     * Get the name of the restaurant associated with the review.
      *
-     * @return The ID of the restaurant.
+     * @return The name of the restaurant.
      */
-    public String getRestaurantId() {
-        return restaurantId;
+    public String getRestaurantName() {
+        return restaurantName;
     }
 
     /**
-     * Set the ID of the restaurant associated with the review.
+     * Set the name of the restaurant associated with the review.
      *
-     * @param restaurantId The ID of the restaurant.
+     * @param restaurantName The name of the restaurant to set.
      */
-    public void setRestaurantId(String restaurantId) {
-        this.restaurantId = restaurantId;
+    public void setRestaurantName(String restaurantName) {
+        this.restaurantName = restaurantName;
+    }
+
+    /**
+     * Get the location of the restaurant associated with the review.
+     *
+     * @return The location of the restaurant.
+     */
+    public String getLocation() {
+        return location;
+    }
+
+    /**
+     * Set the location of the restaurant associated with the review.
+     *
+     * @param location The location of the restaurant to set.
+     */
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     /**
@@ -70,7 +103,7 @@ public class ReviewDTO {
     /**
      * Set the ID of the user who submitted the review.
      *
-     * @param userId The ID of the user.
+     * @param userId The ID of the user to set.
      */
     public void setUserId(String userId) {
         this.userId = userId;
