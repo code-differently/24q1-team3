@@ -1,14 +1,13 @@
 const path = require('path');
 const express = require('express');
 const cors = require('cors');
-const fetch = require('node-fetch');
 require('dotenv').config();
 
 
 const app = express();
 const port = 5501;
 
-app.use(express.static(path.join(__dirname, 'frontend')));
+app.use(express.static('.'));
 
 const yelpApiKey = process.env.YELP_API_KEY;
 
@@ -17,16 +16,11 @@ app.use(cors());
 
 async function fetchRestaurantsFromYelp() {
     try {
-        const response = await fetch('https://api.yelp.com/v3/businesses/search?location=New+York&categories=restaurants', {
-            headers: {
-                'Authorization': 'Bearer YOUR_YELP_API_KEY' 
-            }
-        });
+        const response = await fetch('http://localhost:8080/api/restaurants/search?term=pizza&location=New+York');
         if (!response.ok) {
             throw new Error('Failed to fetch restaurants from Yelp API');
         }
-        const data = await response.json();
-        return data.businesses;
+        return response.json();
     } catch (error) {
         console.error(error);
         return [];

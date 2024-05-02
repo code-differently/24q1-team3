@@ -1,12 +1,14 @@
 package com.fooddifferently.fd.repository;
 
-import com.fooddifferently.fd.model.Review;
-import lombok.NonNull;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
+import com.fooddifferently.fd.model.Review;
+
+import lombok.NonNull;
 
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Long> {
@@ -36,14 +38,6 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
      * @return A list of reviews matching the specified restaurant name and location.
      */
     List<Review> findByRestaurantNameAndLocation(String restaurantName, String location);
-
-    /**
-     * Retrieves all reviews associated with a specific restaurant.
-     *
-     * @param restaurantId The ID of the restaurant.
-     * @return A list of reviews for the specified restaurant.
-     */
-    List<Review> findByRestaurantId(String restaurantId);
 
     /**
      * Retrieves all reviews submitted by a specific user.
