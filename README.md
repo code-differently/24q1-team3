@@ -22,10 +22,10 @@ Welcome to Food Differently, where we're revolutionizing the way you experience 
 
 ## Installation instructions
 
-### Backend
-
 - Clone the repository
 git clone https://github.com/code-differently/24q1-team3.git
+
+### Backend
 
 - Navigate to the backend directory
 cd 24q1-team3/backend
@@ -40,6 +40,20 @@ mvn clean install
 - Run the Spring Boot application
 mvn spring-boot:run
 
+
+### Frontend
+
+- Navigate to the frontend directory
+cd frontend/
+
+- Install dependencies using npm
+npm install
+
+- Start the frontend server using nodemon
+npx nodemon src/server.js
+
+
+- Navigate to the frontend directory
 
 ## Known issues
 
