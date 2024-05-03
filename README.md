@@ -20,6 +20,8 @@ Welcome to Food Differently, where we're revolutionizing the way you experience 
 
 ## Demo link
 
+You can view a live demo of the application [here](https://fooddifferently.netlify.app).
+
 ## Installation instructions
 
 - Clone the repository:
