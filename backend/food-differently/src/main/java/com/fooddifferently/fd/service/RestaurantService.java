@@ -59,9 +59,6 @@ public class RestaurantService {
         return restaurantResults;
     }
 
-    public List<Restaurant> searchRestaurantsByTypeOfFood(String typeOfFood) {
-        return restaurantRepository.findByTypeOfFood(typeOfFood);
-    }
 
     private Restaurant mapYelpBusinessToRestaurant(Map<String, Object> business) {
         Restaurant restaurant = new Restaurant();
