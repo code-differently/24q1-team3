@@ -22,38 +22,36 @@ Welcome to Food Differently, where we're revolutionizing the way you experience 
 
 ## Installation instructions
 
-- Clone the repository
+- Clone the repository:
 git clone https://github.com/code-differently/24q1-team3.git
 
 ### Backend
 
-- Navigate to the backend directory
+- Navigate to the backend directory:
 cd 24q1-team3/backend
 
-- Ensure Java JDK 21 is installed (download from https://www.oracle.com/java/technologies/javase-jdk11-downloads.html if not installed)
+- Ensure Java JDK 21 is installed: (download from https://www.oracle.com/java/technologies/javase-jdk11-downloads.html if not installed)
 
 - Update pom.xml to match your Java JDK version if necessary
 
-- Build the project using Maven
+- Build the project using Maven:
 mvn clean install
 
-- Run the Spring Boot application
+- Run the Spring Boot application:
 mvn spring-boot:run
 
 
 ### Frontend
 
-- Navigate to the frontend directory
+- Navigate to the frontend directory:
 cd frontend/
 
-- Install dependencies using npm
+- Install dependencies using npm:
 npm install
 
-- Start the frontend server using nodemon
+- Start the frontend server using nodemon:
 npx nodemon src/server.js
 
-
-- Navigate to the frontend directory
 
 ## Known issues
 
