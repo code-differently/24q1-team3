@@ -13,8 +13,8 @@
         <h1 class="logo">FoodDifferently</h1>
 
     <div class="sidebar-menus">
-    <a href="#"><ion-icon name="storefront-outline"></ion-icon>Home</a>
-    <a href="#"><ion-icon name="receipt-outline"></ion-icon>Orders</a>
+        <a href="index.html"><ion-icon name="storefront-outline"></ion-icon>Home</a>
+        <a href="#"><ion-icon name="receipt-outline"></ion-icon>Orders</a>
     <a href="#"><ion-icon name="wallet-outline"></ion-icon>Wallet</a>
     <a href="#"><ion-icon name="notifications-outline"></ion-icon>Notification</a>
     <a href="#"><ion-icon name="settings-outline"></ion-icon>Settings</a>
@@ -32,9 +32,9 @@
 
     <ion-icon class="menu-toggle" name="menu-outline"></ion-icon>
 
-<div class="search">
-<input type="text" placeholder="What do you want to eat?">
-<button class="search-btn">Search</button>
+    <div class="search">
+        <input id="searchInput" type="text" placeholder="What do you want to eat?">
+        <button id="searchButton" class="search-btn">Search</button>
     </div>
 
 
@@ -45,7 +45,7 @@
 </div>
 
 <div class="main-highlight"> 
-    <div class="main-header">        <h2 class="main-title">Order again</h2>
+    <div class="main-header">  <h2 class="main-title">Order again</h2>
         <div class="main-arrow">
             <ion-icon class="back" name="chevron-back-circle-outline"></ion-icon>
             <ion-icon class="next" name="chevron-forward-circle-outline"></ion-icon>
@@ -96,50 +96,52 @@
              </div>
         </div>
 
+
+
         <div class="filter-wrapper">
-            <div class="filter-card">
+            <div class="filter-card" data-food="All Menus">
                 <div class="filter-icon">
                     <ion-icon name="restaurant-outline"></ion-icon>
                 </div>
                 <p>All Menus</p>
             </div>
-            <div class="filter-card">
+            <div class="filter-card" data-food="Burger">
                 <div class="filter-icon">
                     <ion-icon name="fast-food-outline"></ion-icon>
                 </div>
                 <p>Burger</p>
-            </div>   
-            <div class="filter-card">
+            </div>
+            <div class="filter-card" data-food="Pizza">
                 <div class="filter-icon">
                     <ion-icon name="pizza-outline"></ion-icon>
                 </div>
                 <p>Pizza</p>
             </div>
-            <div class="filter-card">
+            <div class="filter-card" data-food="wine">
             <div class="filter-icon">
                 <ion-icon name="wine-outline"></ion-icon>
             </div>
                 <p>Wine</p>
                 </div>
-                <div class="filter-card">
+                <div class="filter-card" data-food="Ice-cream">
             <div class="filter-icon">
                 <ion-icon name="ice-cream-outline"></ion-icon>
             </div>
                 <p>Ice-cream</p>
             </div>
-            <div class="filter-card">
+            <div class="filter-card" data-food="=Coffee">
             <div class="filter-icon">
                 <ion-icon name="cafe-outline"></ion-icon>
             </div>
                 <p>Coffee</p>
                 </div>
-            <div class="filter-card">
+            <div class="filter-card" data-food="seafood">
             <div class="filter-icon">
                 <ion-icon name="fish-outline"></ion-icon>
             </div>
                 <p>Seafood</p>
             </div>
-            <div class="filter-card">
+            <div class="filter-card" data-food="healthy">
             <div class="filter-icon">
                 <ion-icon name="nutrition-outline"></ion-icon>
             </div>
@@ -152,7 +154,7 @@
 <hr class="divider">
 
 <div clas="main-detail">
-    <h2 class="main-title">Choose Order</h2>
+    <h2 class="main-title">Choose restaurant</h2>
     <div class="detail-wrapper">
 </div>
 </div>
