@@ -8,7 +8,15 @@
 
     
 ## Screenshot
-![j](/Users/jayenware/24q1-team3/FDScreenShots/AboutUs.png)
+
+![alt text](../FDScreenShots/AboutUs.png)
+![alt text](../FDScreenShots/ContactUs.png)
+![alt text](../FDScreenShots/FrontBottom.png)
+![alt text](../FDScreenShots/FrontMiddle.png)
+![alt text](../FDScreenShots/FrontTop.png)
+![alt text](../FDScreenShots/Nearby.png)
+
+
 
 
 ## Introduction
